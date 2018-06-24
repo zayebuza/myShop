@@ -26,7 +26,7 @@ public class UserService {
     }
 
 
-    public void insertUser(User user) {
+    public Integer insertUser(User user) {
         User queryUser = new User();
         queryUser.setEmail(user.getEmail());
         User emailUser = userMapper.getUserByLoginName(user.getEmail());
@@ -45,8 +45,6 @@ public class UserService {
         user.setCreateBy(user.getUserName());
         user.setLoginPassword(PasswordUtils.getMd5(user.getLoginPassword(), user.getUserNumber(), user.getSalt()));
         return userMapper.insert(user);
-
-
 
     }
 }

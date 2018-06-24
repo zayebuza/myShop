@@ -1,8 +1,12 @@
 package com.demo.shopuser.mapper;
 
 import com.demo.shopuser.entity.User;
-import org.apache.ibatis.annotations.*;
 
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -12,7 +16,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Mapper
-public interface UserMapper  {
+public interface UserMapper extends BaseMapper<User> {
     /**
      * 根据登录名查找用户信息
      * @param username
@@ -39,6 +43,4 @@ public interface UserMapper  {
     @Delete("delete from os_user where user_id = #{userId}")
     void deleteById(Long userId);
 
-    @Insert("insert into os_user")
-    void insert(User user);
 }
