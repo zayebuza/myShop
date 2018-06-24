@@ -1,6 +1,6 @@
 package com.demo.shopuser.serurity;
 
-import com.demo.shopuser.common.StatusEnum;
+import com.demo.shopuser.enums.StatusEnum;
 import com.demo.shopuser.entity.User;
 import com.demo.shopuser.service.UserService;
 import org.apache.shiro.authc.*;

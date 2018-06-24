@@ -5,7 +5,7 @@ package com.demo.shopuser.common;
  * Date:2018/6/24-15:06
  * Description:
  */
-public enum CommonReturnCode implements RetuenCode {
+public enum CommonReturnCode implements ReturnCode {
 
     /** 请求失败 */
     FAILED(0, "failed"),

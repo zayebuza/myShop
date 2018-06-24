@@ -1,4 +1,4 @@
-package com.demo.shopuser.common;
+package com.demo.shopuser.enums;
 
 /**
  * Created by miaodongbiao

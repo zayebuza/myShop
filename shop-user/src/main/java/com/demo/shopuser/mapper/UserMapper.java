@@ -1,8 +1,8 @@
 package com.demo.shopuser.mapper;
 
 import com.demo.shopuser.entity.User;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+
 import org.springframework.stereotype.Repository;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Mapper
-public interface UserMapper {
+public interface UserMapper  {
     /**
      * 根据登录名查找用户信息
      * @param username
@@ -35,4 +35,10 @@ public interface UserMapper {
            "    \t\temail = #{loginName} \n" +
            "    \tOR telephone = #{loginName}")
     User getUserByLoginName(String username);
+
+    @Delete("delete from os_user where user_id = #{userId}")
+    void deleteById(Long userId);
+
+    @Insert("insert into os_user")
+    void insert(User user);
 }

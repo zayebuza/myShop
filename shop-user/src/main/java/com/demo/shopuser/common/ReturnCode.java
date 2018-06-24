@@ -5,7 +5,7 @@ package com.demo.shopuser.common;
  * Date:2018/6/24-15:07
  * Description:
  */
-public interface RetuenCode {
+public interface ReturnCode {
     public Integer getCode();
 
     public String getMessage();
