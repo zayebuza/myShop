@@ -1,0 +1,5 @@
+#这个文件是主要文件，spring boot会首先加载这个文件
+spring:
+  profiles:
+  #表示激活了dev的配置文件
+    active: dev
