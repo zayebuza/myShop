@@ -16,6 +16,7 @@ import java.util.Date;
 public class Address {
     /**
      * 收获地址ID
+     * s
      */
     @TableId(value="address_id", type= IdType.AUTO)
     private Long addressId;
