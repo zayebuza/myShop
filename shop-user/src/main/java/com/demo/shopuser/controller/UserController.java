@@ -42,7 +42,20 @@ public class UserController {
 
         currentUser.login(token);
         System.out.println(loginName);
-        return new BaseResult(CommonReturnCode.SUCCESS.getCode(),CommonReturnCode.SUCCESS.getMessage());
+        return new BaseResult(CommonReturnCode.SUCCESS.getCode(),token.toString());
+    }
+
+    /**
+     * 根据token登录，可惜这里的token不是我理解的token   之后完善
+     * @param token
+     * @return
+     */
+    @GetMapping(value ="/login")
+    @ResponseBody
+    public Object login(@RequestParam(value = "token") UsernamePasswordToken token){
+        Subject currentUser = SecurityUtils.getSubject();
+        currentUser.login(token);
+        return new BaseResult(CommonReturnCode.SUCCESS.getCode(),token.toString());
     }
 
     /**
@@ -61,7 +74,7 @@ public class UserController {
             return new OsResult(CommonReturnCode.BAD_REQUEST.getCode(),"密码长度6~20位，其中数字，字母和符号至少包含两种!");
         }
         userService.insertUser(user);
-        return null;
+        return new BaseResult(CommonReturnCode.SUCCESS.getCode(),"创建成功");
     }
 
 

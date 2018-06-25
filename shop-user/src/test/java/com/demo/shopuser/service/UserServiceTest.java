@@ -23,9 +23,7 @@ public class UserServiceTest {
     @Test
     public void insertUser(){
         User user = new User();
-        user.setEmail("2323266323@qq.com");
-        user.setEmailIsActive(1);
-        user.setSalt("111");
+        user.setEmail("23232111zz66ee323@qq.com");
         user.setLoginPassword("111111");
 
         userService.insertUser(user);

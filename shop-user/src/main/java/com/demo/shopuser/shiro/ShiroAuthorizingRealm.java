@@ -1,4 +1,4 @@
-package com.demo.shopuser.serurity;
+package com.demo.shopuser.shiro;
 
 import com.demo.shopuser.enums.StatusEnum;
 import com.demo.shopuser.entity.User;
@@ -58,4 +58,6 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
         }
         return new SimpleAuthenticationInfo(user,user.getLoginPassword(),this.getClass().getName());
     }
+
+    // TODO: 2018/6/25  shiro 整合 jwt
 }

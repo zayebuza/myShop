@@ -21,11 +21,21 @@ import java.util.Date;
 public class UserService {
     @Autowired
     UserMapper userMapper;
+
+    /**
+     * 根据username查找用户
+     * @param username
+     * @return
+     */
     public User getUserByLoginName(String username) {
         return userMapper.getUserByLoginName(username);
     }
 
-
+    /**
+     * 插入用户
+     * @param user
+     * @return
+     */
     public Integer insertUser(User user) {
         User queryUser = new User();
         queryUser.setEmail(user.getEmail());
@@ -47,4 +57,16 @@ public class UserService {
         return userMapper.insert(user);
 
     }
+
+    /**
+     * 用户注销
+     */
+
+
+
+    /**
+     * 修改用户信息
+     */
+
+
 }
