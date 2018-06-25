@@ -19,12 +19,18 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
     @Autowired
     UserService userService;
 
+    /**
+     * 授权  访问控制。比如某个用户是否具有某个操作的使用权限
+     * @param principalCollection
+     * @return
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         return null;
     }
 
     /**
+     * 认证   用户身份识别，通常被称为用户“登录
      * 认证回调函数, 登录时调用
      * Shiro登录认证(原理：用户提交 用户名和密码  --- shiro 封装令牌 ---- realm 通过用户名将密码查询返回
      *      ---- shiro 自动去比较查询出密码和用户输入密码是否一致---- 进行登陆控制

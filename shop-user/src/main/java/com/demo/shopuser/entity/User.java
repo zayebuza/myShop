@@ -1,5 +1,10 @@
 package com.demo.shopuser.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -8,22 +13,27 @@ import java.util.Date;
  * Date:2018/6/24-12:48
  * Description:
  */
+@TableName("os_user")
 public class User {
     /**
      * 用户ID
      */
+    @TableId(value="user_id", type= IdType.AUTO)
     private Long userId;
     /**
      * 用户编号
      */
+    @TableField("user_number")
     private Long userNumber;
     /**
      * 昵称
      */
+    @TableField("user_name")
     private String userName;
     /**
      * 登录密码
      */
+    @TableField("login_password")
     private String loginPassword;
     /**
      * 加密密码的盐
@@ -32,6 +42,7 @@ public class User {
     /**
      * 真实姓名
      */
+    @TableField("real_name")
     private String realName;
     /**
      * 性别 0=保密/1=男/2=女
@@ -44,6 +55,7 @@ public class User {
     /**
      * 用户头像
      */
+    @TableField("pic_img")
     private String picImg;
     /**
      * 状态 0=冻结/1=正常
@@ -52,6 +64,7 @@ public class User {
     /**
      * 邮箱激活 0=未激活/1=已激活
      */
+    @TableField("email_is_active")
     private Integer emailIsActive;
     /**
      * 电子邮箱
@@ -64,34 +77,37 @@ public class User {
     /**
      * 最后登录时间
      */
+    @TableField("last_login_time")
     private Date lastLoginTime;
     /**
      * 最后登录IP
      */
+    @TableField("last_login_ip")
     private String lastLoginIp;
     /**
      * 登录次数
      */
+    @TableField("login_number")
     private Long loginNumber;
     /**
      * 注册时间
      */
-
+    @TableField("regeist_time")
     private Date regeistTime;
     /**
      * 创建者
      */
-
+    @TableField("create_by")
     private String createBy;
     /**
      * 更新时间
      */
-
+    @TableField("update_time")
     private Date updateTime;
     /**
      * 更新者
      */
-
+    @TableField("update_by")
     private String updateBy;
     /**
      * 消费额
@@ -100,7 +116,7 @@ public class User {
     /**
      * 会员等级ID
      */
-
+    @TableField("rank_id")
     private Long rankId;
     /**
      * 会员积分

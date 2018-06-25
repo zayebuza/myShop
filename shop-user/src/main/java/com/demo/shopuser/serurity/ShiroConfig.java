@@ -19,12 +19,14 @@ import java.util.Map;
 public class ShiroConfig {
     /**
      * 自定义的Realm
+     * 配置自定义的权限登录器
      */
     @Bean(name = "myShiroRealm")
     public ShiroAuthorizingRealm myShiroRealm(){
         ShiroAuthorizingRealm myShiroRealm = new ShiroAuthorizingRealm();
         return myShiroRealm;
     }
+    //配置核心安全事务管理器
     @Bean
     public DefaultWebSecurityManager securityManager(){
         DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();

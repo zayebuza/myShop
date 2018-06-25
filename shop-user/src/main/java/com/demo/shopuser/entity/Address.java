@@ -1,5 +1,10 @@
 package com.demo.shopuser.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.util.Date;
 
 /**
@@ -7,82 +12,83 @@ import java.util.Date;
  * Date:2018/6/24-12:48
  * Description:
  */
+@TableName("os_address")
 public class Address {
     /**
      * 收获地址ID
      */
+    @TableId(value="address_id", type= IdType.AUTO)
     private Long addressId;
     /**
      * 用户ID
      */
-
+    @TableField("user_id")
     private Long userId;
     /**
      * 姓名
      */
-
+    @TableField("user_name")
     private String userName;
     /**
      * 地址标签
      */
-
+    @TableField("user_tag")
     private String userTag;
     /**
      * 手机号码
      */
-
+    @TableField("user_phone")
     private String userPhone;
     /**
      * 省份ID
      */
-
+    @TableField("province_id")
     private Integer provinceId;
     /**
      * 省份名字
      */
-
+    @TableField("province_name")
     private String provinceName;
     /**
      * 城市ID
      */
-
+    @TableField("city_id")
     private Integer cityId;
     /**
      * 城市名字
      */
-
+    @TableField("city_name")
     private String cityName;
     /**
      * 区域ID
      */
-
+    @TableField("district_id")
     private Integer districtId;
     /**
      * 区域名字
      */
-
+    @TableField("district_name")
     private String districtName;
     /**
      * 详细地址
      */
-
+    @TableField("user_adress")
     private String userAdress;
     /**
      * 邮政编码
      */
-
+    @TableField("user_zipcode")
     private Integer userZipcode;
     /**
      * 创建时间
      */
-
+    @TableField("create_time")
     private Date createTime;
     /**
      * 更新时间
      */
-
+    @TableField("update_time")
     private Date updateTime;
-
     public Long getAddressId() {
         return addressId;
     }

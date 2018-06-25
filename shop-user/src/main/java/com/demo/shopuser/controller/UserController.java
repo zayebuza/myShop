@@ -35,7 +35,7 @@ public class UserController {
      */
     @PostMapping(value="/login")
     @ResponseBody
-    public Object login(@RequestParam(value="loginName") String loginName, @RequestParam(value = "passWord") String passWord){
+    public Object login(@RequestParam(value = "loginName") String loginName, @RequestParam(value = "passWord") String passWord){
 
         Subject currentUser = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(loginName, passWord);
@@ -61,7 +61,6 @@ public class UserController {
             return new OsResult(CommonReturnCode.BAD_REQUEST.getCode(),"密码长度6~20位，其中数字，字母和符号至少包含两种!");
         }
         userService.insertUser(user);
-
         return null;
     }
 
