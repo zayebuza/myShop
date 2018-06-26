@@ -3,6 +3,7 @@ package com.demo.shoporder.mapper;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.demo.shoporder.bean.OrderShoppingCartVO;
 import com.demo.shoporder.entity.OrderProduct;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  * 3 * @Date: 2018/6/26 19:08
  * 4
  */
+@Mapper
 public interface OrderProductMapper extends BaseMapper<OrderProduct> {
 
     /**

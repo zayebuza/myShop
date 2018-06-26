@@ -2,6 +2,7 @@ package com.demo.shoporder.service.impl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.demo.shoporder.bean.OrderShoppingCartVO;
+import com.demo.shoporder.common.enums.OrderCreateStatusEnum;
 import com.demo.shoporder.common.enums.OrderStatusEnum;
 import com.demo.shoporder.common.utils.OrderUtils;
 import com.demo.shoporder.entity.Order;
@@ -10,8 +11,10 @@ import com.demo.shoporder.entity.OrderStatus;
 import com.demo.shoporder.mapper.OrderMapper;
 import com.demo.shoporder.mapper.OrderProductMapper;
 import com.demo.shoporder.mapper.OrderShipmentMapper;
+import com.demo.shoporder.mapper.OrderStatusMapper;
 import com.demo.shoporder.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -21,6 +24,7 @@ import java.util.List;
  * 3 * @Date: 2018/6/26 18:27
  * 4
  */
+@Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements OrderService {
 
     @Autowired
@@ -29,7 +33,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements 
     OrderShipmentMapper orderShipmentMapper;
     @Autowired
     OrderProductMapper orderProductMapper;
+    @Autowired
+    OrderStatusMapper orderStatusMapper;
 
+    /**
+     *
+     * @param order  订单信息
+     * @param orderShipment  订单配送信息
+     * @param shoppingCartVOs
+     * @param userId    用户ID
+     * @return  返回订单号
+     */
     @Override
     public Long insertOrder(Order order, OrderShipment orderShipment, List<OrderShoppingCartVO> shoppingCartVOs, Long userId) {
         //创建订单
@@ -37,6 +51,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements 
         order.setCreateTime(new Date());
         order.setUpdateTime(new Date());
         order.setUserId(userId);
+        order.setOrderNumber(orderNumber);
         order.setPayAmount(OrderUtils.getPayAmount(order.getShipmentAmount(),order.getOrderAmount()));
         order.setOrderStatus(OrderStatusEnum.SUBMIT_ORDERS.getStatus());
         orderMapper.insert(order);
@@ -47,18 +62,18 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements 
         orderShipmentMapper.insert(orderShipment);
 
         //添加订单详情表
-        orderProductMapper.insertProduct(shoppingCartVOs,order.getUserId());
+        orderProductMapper.insertProduct(shoppingCartVOs,order.getOrderId());
         
         //添加订单状态记录表
         OrderStatus orderStatus = new OrderStatus();
         orderStatus.setCreateBy(userId.toString());
         orderStatus.setCreateTime(new Date());
-        // TODO: 2018/6/26  
-        orderStatus.setRemarks();
-    
-        //
+        orderStatus.setRemarks(OrderStatusEnum.SUBMIT_ORDERS.getStateInfo());
+        orderStatus.setOrderStatus(OrderStatusEnum.SUBMIT_ORDERS.getStatus());
+        orderStatus.setOrderId(order.getOrderId());
+        orderStatus.setCreateStatus(OrderCreateStatusEnum.MEMBER.getStatus());
+        orderStatusMapper.insert(orderStatus);
 
-
-        return null;
+        return order.getOrderNumber();
     }
 }

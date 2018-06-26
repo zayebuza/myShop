@@ -1,6 +1,18 @@
 package com.demo.shopcommon.support.email;
 
+import java.io.File;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.mail.Address;
+import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+import com.demo.shopcommon.util.DateUtils;
 import org.apache.velocity.app.VelocityEngine;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -8,15 +20,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
-
-import javax.mail.Address;
-import javax.mail.MessagingException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.io.File;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Map;
+import org.springframework.ui.velocity.VelocityEngineUtils;
 
 /**
  * 

@@ -195,8 +195,8 @@ public class RSAUtils {
     
     /**
      * 根据给定的16进制系数和专用指数字符串构造一个RSA专用的私钥对象
-     * @param modulus 系数
-     * @param privateExponent 专用指数
+     * @param hexModulus 系数
+     * @param hexPrivateExponent 专用指数
      * @return RSA专用私钥对象
      */
 	public static RSAPrivateKey getRSAPrivateKey(String hexModulus, String hexPrivateExponent) {
@@ -224,8 +224,8 @@ public class RSAUtils {
     /**
      * 根据给定的16进制系数和专用指数字符串构造一个RSA专用的公钥对象
      * 
-     * @param modulus 系数
-     * @param publicExponent 专用指数
+     * @param hexModulus 系数
+     * @param hexPublicExponent 专用指数
      * @return RSA专用公钥对象
      */
 	public static RSAPublicKey getRSAPublidKey(String hexModulus, String hexPublicExponent) {
