@@ -6,7 +6,7 @@
 	<groupId>com.demo</groupId>
 	<artifactId>myshop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>myshop</name>
 	<description>Demo project for Spring Boot</description>
@@ -21,7 +21,9 @@
         <module>shop-user</module>
         <module>shop-common</module>
         <module>shop-order</module>
-    </modules>
+		<module>shop-stock</module>
+		<module>shop-web</module>
+	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
