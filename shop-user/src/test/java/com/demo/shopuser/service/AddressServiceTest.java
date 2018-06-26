@@ -24,4 +24,9 @@ public class AddressServiceTest {
         List list =  addressService.listAddress(28l);
         System.out.println(list.get(0));
     }
+    @Test
+    public void teee(){
+        String[] abc =new String[]{"a","b"};
+
+    }
 }
