@@ -1,5 +1,6 @@
 package com.demo.shoporder.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.demo.shoporder.bean.OrderShoppingCartVO;
 import com.demo.shoporder.common.enums.OrderCreateStatusEnum;
@@ -14,7 +15,8 @@ import com.demo.shoporder.mapper.OrderShipmentMapper;
 import com.demo.shoporder.mapper.OrderStatusMapper;
 import com.demo.shoporder.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -24,7 +26,7 @@ import java.util.List;
  * 3 * @Date: 2018/6/26 18:27
  * 4
  */
-@Service
+@Service(version = "1.0.0")
 public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements OrderService {
 
     @Autowired
@@ -40,12 +42,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements 
      *
      * @param order  订单信息
      * @param orderShipment  订单配送信息
-     * @param shoppingCartVOs
+     * @param OrderShoppingCartVO
      * @param userId    用户ID
      * @return  返回订单号
      */
+    @Transactional
     @Override
-    public Long insertOrder(Order order, OrderShipment orderShipment, List<OrderShoppingCartVO> shoppingCartVOs, Long userId) {
+    public Long insertOrder(Order order, OrderShipment orderShipment, List<OrderShoppingCartVO> OrderShoppingCartVO, Long userId) {
         //创建订单
         Long orderNumber = OrderUtils.getOrderNumber();
         order.setCreateTime(new Date());
@@ -62,7 +65,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements 
         orderShipmentMapper.insert(orderShipment);
 
         //添加订单详情表
-        orderProductMapper.insertProduct(shoppingCartVOs,order.getOrderId());
+        //orderProductMapper.insertProduct(OrderShoppingCartVO,order.getOrderId());
         
         //添加订单状态记录表
         OrderStatus orderStatus = new OrderStatus();

@@ -1,7 +1,7 @@
 package com.demo.shopuser.service;
 
 import com.demo.shopuser.ShopUserApplication;
-import com.demo.shopuser.mapper.AddressMapper;
+import com.demo.shopuser.service.serviceImpl.AddressServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,12 +16,12 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ShopUserApplication.class)
-public class AddressServiceTest {
-    AddressService addressService = new AddressService();
+public class AddressServiceImplTest {
+    AddressServiceImpl addressServiceImpl = new AddressServiceImpl();
     @Test
     public void query(){
 
-        List list =  addressService.listAddress(28l);
+        List list =  addressServiceImpl.listAddress(28l);
         System.out.println(list.get(0));
     }
     @Test

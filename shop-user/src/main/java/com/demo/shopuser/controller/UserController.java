@@ -5,7 +5,7 @@ import com.demo.shopuser.common.CommonReturnCode;
 import com.demo.shopuser.common.OsResult;
 import com.demo.shopuser.common.RegexUtils;
 import com.demo.shopuser.entity.User;
-import com.demo.shopuser.service.UserService;
+import com.demo.shopuser.service.serviceImpl.UserServiceImpl;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    UserServiceImpl userServiceImpl;
     /**
      * 用户登录
      * @param loginName
@@ -73,7 +73,7 @@ public class UserController {
         if (StringUtils.isEmpty(user.getLoginPassword()) || !RegexUtils.isPassword(user.getLoginPassword())){
             return new OsResult(CommonReturnCode.BAD_REQUEST.getCode(),"密码长度6~20位，其中数字，字母和符号至少包含两种!");
         }
-        userService.insertUser(user);
+        userServiceImpl.insertUser(user);
         return new BaseResult(CommonReturnCode.SUCCESS.getCode(),"创建成功");
     }
 

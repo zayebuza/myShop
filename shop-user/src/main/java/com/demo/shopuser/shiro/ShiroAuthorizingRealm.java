@@ -2,7 +2,7 @@ package com.demo.shopuser.shiro;
 
 import com.demo.shopuser.enums.StatusEnum;
 import com.demo.shopuser.entity.User;
-import com.demo.shopuser.service.UserService;
+import com.demo.shopuser.service.serviceImpl.UserServiceImpl;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class ShiroAuthorizingRealm extends AuthorizingRealm {
     @Autowired
-    UserService userService;
+    UserServiceImpl userServiceImpl;
 
     /**
      * 授权  访问控制。比如某个用户是否具有某个操作的使用权限
@@ -48,7 +48,7 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
         // 获取基于用户名和密码的令牌：实际上这个authcToken是从LoginController里面currentUser.login(token)传过来的
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         System.out.println(token.getUsername());
-        User user = userService.getUserByLoginName(token.getUsername());
+        User user = userServiceImpl.getUserByLoginName(token.getUsername());
 
         if (user == null || user.getEmailIsActive().equals(StatusEnum.NONACTIVATED.getStatus())){
             throw new UnknownAccountException();// 没找到帐号或者邮箱未被激活
