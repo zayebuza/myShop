@@ -1,8 +1,8 @@
 package com.demo.shoporder;
 
-import com.demo.shoporder.bean.OrderShoppingCartVO;
-import com.demo.shoporder.entity.Order;
-import com.demo.shoporder.entity.OrderShipment;
+import com.demo.shopdubboapi.entity.order.Order;
+import com.demo.shopdubboapi.entity.order.OrderShipment;
+import com.demo.shopdubboapi.entity.order.OrderShoppingCartVO;
 import com.demo.shoporder.service.impl.OrderServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +19,7 @@ import java.util.List;
 public class ShopOrderApplicationTests {
 
 	@Autowired
-	OrderServiceImpl orderService;
+	//OrderServiceImpl orderService;
 	@Test
 	public void test(){
 		Order order = new Order();
@@ -39,7 +39,7 @@ public class ShopOrderApplicationTests {
 		List list = new ArrayList();
 		list.add(orderShoppingCartVO);
 
-		orderService.insertOrder(order,orderShipment,list, Long.valueOf(1));
+		//orderService.insertOrder(order,orderShipment,list, Long.valueOf(1));
 
 	}
 

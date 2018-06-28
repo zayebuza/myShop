@@ -3,3 +3,4 @@ spring:
   profiles:
   #��ʾ������dev�������ļ�
     active: dev
+

@@ -29,11 +29,25 @@
             <artifactId>shop-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>com.demo</groupId>-->
-			<!--<artifactId>shop-user</artifactId>-->
-			<!--<version>0.0.1-SNAPSHOT</version>-->
-		<!--</dependency>-->
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>shop-dubbo-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+		<dependency>
+			<groupId>com.alibaba.spring.boot</groupId>
+			<artifactId>dubbo-spring-boot-starter</artifactId>
+			<version>2.0.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

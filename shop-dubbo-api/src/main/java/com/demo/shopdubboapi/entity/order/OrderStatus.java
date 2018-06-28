@@ -1,4 +1,4 @@
-package com.demo.shoporder.entity;
+package com.demo.shopdubboapi.entity.order;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;

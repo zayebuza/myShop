@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.demo</groupId>
-    <artifactId>shop-web</artifactId>
+    <artifactId>shop-dubbo-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>shop-web</name>
+    <name>shop-dubbo-api</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -24,18 +24,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.alibaba.spring.boot</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.demo</groupId>
-            <artifactId>shop-order</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-
 
     </dependencies>
 

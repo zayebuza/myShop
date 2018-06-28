@@ -1,9 +1,5 @@
-package com.demo.shoporder.bean;
+package com.demo.shopdubboapi.entity.order;
 
-
-import com.demo.shoporder.entity.OrderProduct;
-import com.demo.shoporder.entity.OrderShipment;
-import com.demo.shoporder.entity.OrderStatus;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

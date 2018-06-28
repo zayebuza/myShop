@@ -1,14 +1,16 @@
 package com.demo.shoporder.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.demo.shoporder.bean.OrderShoppingCartVO;
-import com.demo.shoporder.entity.OrderProduct;
+
+import com.demo.shopdubboapi.entity.order.OrderProduct;
+import com.demo.shopdubboapi.entity.order.OrderShoppingCartVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 
 /**
  * 2 * @Author: miaodongbiao

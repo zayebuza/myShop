@@ -1,33 +1,40 @@
 package com.demo.shoporder.service.impl;
 
 
+
+
+import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.demo.shoporder.bean.OrderShoppingCartVO;
+import com.demo.shopdubboapi.entity.order.Order;
+import com.demo.shopdubboapi.entity.order.OrderShipment;
+import com.demo.shopdubboapi.entity.order.OrderShoppingCartVO;
+import com.demo.shopdubboapi.entity.order.OrderStatus;
+import com.demo.shopdubboapi.service.OrderService;
 import com.demo.shoporder.common.enums.OrderCreateStatusEnum;
 import com.demo.shoporder.common.enums.OrderStatusEnum;
 import com.demo.shoporder.common.utils.OrderUtils;
-import com.demo.shoporder.entity.Order;
-import com.demo.shoporder.entity.OrderShipment;
-import com.demo.shoporder.entity.OrderStatus;
+
 import com.demo.shoporder.mapper.OrderMapper;
 import com.demo.shoporder.mapper.OrderProductMapper;
 import com.demo.shoporder.mapper.OrderShipmentMapper;
 import com.demo.shoporder.mapper.OrderStatusMapper;
-import com.demo.shoporder.service.OrderService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.stereotype.Service;
+
+
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+
 
 /**
  * 2 * @Author: miaodongbiao
  * 3 * @Date: 2018/6/26 18:27
  * 4
  */
-@Service
+@Service(interfaceClass = OrderService.class)
 public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements OrderService {
 
     @Autowired
@@ -79,5 +86,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements 
         orderStatusMapper.insert(orderStatus);
 
         return order.getOrderNumber();
+    }
+
+    @Override
+    public void say() {
+        System.out.println("helloa");
     }
 }

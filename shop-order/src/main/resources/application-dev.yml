@@ -1,6 +1,13 @@
 project:
   name: 开发环境
 spring:
+  dubbo:
+      application:
+        name: demo-provider
+      registry:
+        address: 39.105.26.217                 # zookeeper注册中心的地址
+        port: 2181                           # zookeeper注册中心的端口
+      server: true
   datasource:
     #Spring Boot的数据源配置默认类型是org.apache.tomcat.jdbc.pool.DataSource，为了使用Druid连接池，可以将数据源类型更换为com.alibaba.druid.pool.DruidDataSource，
     #具体如下代码所示。其中，url，username，password是连接MySQL服务器的配置参数，其他一些参数是设定Druid的工作方式
@@ -31,8 +38,6 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
-  thymeleaf:
-         cache: false
-         mode: LEGACYHTML5
 server:
   port: 9092
+

@@ -1,4 +1,4 @@
-package com.demo.shoporder.bean;
+package com.demo.shopdubboapi.entity.order;
 
 import org.apache.commons.lang3.StringUtils;
 
