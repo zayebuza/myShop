@@ -1,6 +1,6 @@
 package com.demo.shopuser.service.serviceImpl;
 
-import com.alibaba.dubbo.config.annotation.Service;
+
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.demo.shopuser.common.CommonReturnCode;
 import com.demo.shopuser.common.PasswordUtils;
@@ -11,6 +11,7 @@ import com.demo.shopuser.entity.User;
 import com.demo.shopuser.mapper.UserMapper;
 import com.demo.shopuser.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 import java.util.Date;
@@ -20,7 +21,7 @@ import java.util.Date;
  * Date:2018/6/24-13:57
  * Description:
  */
-@Service(version = "1.0.0")
+@Service
 public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
     @Autowired
     UserMapper userMapper;

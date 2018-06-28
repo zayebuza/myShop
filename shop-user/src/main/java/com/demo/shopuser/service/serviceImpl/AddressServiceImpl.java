@@ -1,12 +1,13 @@
 package com.demo.shopuser.service.serviceImpl;
 
-import com.alibaba.dubbo.config.annotation.Service;
+
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.demo.shopuser.entity.Address;
 import com.demo.shopuser.mapper.AddressMapper;
 import com.demo.shopuser.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
  * 3 * @Date: 2018/6/25 11:09
  * 4
  */
-@Service(version = "1.0.0")
+@Service
 public class AddressServiceImpl extends ServiceImpl<AddressMapper,Address>  implements AddressService {
     @Autowired
     AddressMapper addressMapper;

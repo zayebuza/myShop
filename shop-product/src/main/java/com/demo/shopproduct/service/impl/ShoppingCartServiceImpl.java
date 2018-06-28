@@ -1,14 +1,15 @@
 package com.demo.shopproduct.service.impl;
 
-
-import com.alibaba.dubbo.config.annotation.Service;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.demo.shopproduct.bean.CartVO;
 import com.demo.shopproduct.bean.ShoppingCartVO;
 import com.demo.shopproduct.entity.ShoppingCart;
 import com.demo.shopproduct.mapper.ShoppingCartMapper;
 import com.demo.shopproduct.service.ShoppingCartService;
+import com.demo.shopuser.enums.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 import java.util.Date;
@@ -19,8 +20,8 @@ import java.util.List;
  * 3 * @Date: 2018/6/27 11:28
  * 4
  */
-//注册为dubbo服务
-@Service(version = "1.0.0")
+
+@Service
 public class ShoppingCartServiceImpl extends ServiceImpl<ShoppingCartMapper,ShoppingCart> implements ShoppingCartService {
     @Autowired
     ShoppingCartMapper shoppingCartMapper;
@@ -99,6 +100,13 @@ public class ShoppingCartServiceImpl extends ServiceImpl<ShoppingCartMapper,Shop
 
     }
 
+    @Override
+    public Integer deleteCheckStatus(Long userId) {
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setUserId(userId);
+        shoppingCart.setCheckStatus(StatusEnum.CHECKED.getStatus());
+        return shoppingCartMapper.delete(new EntityWrapper<ShoppingCart>(shoppingCart));
+    }
 
 
 }

@@ -34,15 +34,7 @@ spring:
   thymeleaf:
          cache: false
          mode: LEGACYHTML5
-  dubbo:
-    application:
-      name: provider
-    registry:
-      address: zookeeper://127.0.0.1:2181   #zookeeper注册中心的地址
-      id: my-registry                       # zookeeper注册中心的端口
-    protocol:
-      name: dubbo
-      port: 20880
+
 server:
   port: 9090
 

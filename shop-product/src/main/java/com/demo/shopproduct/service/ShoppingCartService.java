@@ -35,4 +35,11 @@ public interface ShoppingCartService extends IService<ShoppingCart> {
      * @return
      */
     Integer updateStatus(Long productSpecNumber,Long userId,Integer status);
+
+    /**
+     * 根据用户ID删除购物车中选中的商品
+     * @param userId 用户ID
+     * @return
+     */
+    Integer deleteCheckStatus(Long userId);
 }

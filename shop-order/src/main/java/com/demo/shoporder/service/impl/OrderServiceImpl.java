@@ -1,6 +1,6 @@
 package com.demo.shoporder.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
+
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.demo.shoporder.bean.OrderShoppingCartVO;
 import com.demo.shoporder.common.enums.OrderCreateStatusEnum;
@@ -16,6 +16,7 @@ import com.demo.shoporder.mapper.OrderStatusMapper;
 import com.demo.shoporder.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
@@ -26,7 +27,7 @@ import java.util.List;
  * 3 * @Date: 2018/6/26 18:27
  * 4
  */
-@Service(version = "1.0.0")
+@Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements OrderService {
 
     @Autowired

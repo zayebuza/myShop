@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
+	<profiles></profiles>
 	<groupId>com.demo</groupId>
 	<artifactId>myshop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -21,7 +21,6 @@
         <module>shop-user</module>
         <module>shop-common</module>
         <module>shop-order</module>
-		<module>shop-stock</module>
 		<module>shop-web</module>
 		<module>shop-product</module>
 	</modules>
@@ -123,11 +122,7 @@
             <version>1.5.6</version>
         </dependency>
 
-		<dependency>
-			<groupId>com.alibaba.boot</groupId>
-			<artifactId>dubbo-spring-boot-starter</artifactId>
-			<version>0.2.0</version>
-		</dependency>
+
 	</dependencies>
 
 	<build>
