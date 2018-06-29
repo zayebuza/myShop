@@ -1,8 +1,5 @@
 package com.demo.shoporder.service.impl;
 
-
-
-
 import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.demo.shopdubboapi.entity.order.Order;
@@ -34,7 +31,10 @@ import java.util.List;
  * 3 * @Date: 2018/6/26 18:27
  * 4
  */
-@Service(interfaceClass = OrderService.class)
+@Service(interfaceClass = OrderServiceImpl.class,
+        application = "${dubbo.application.id}",
+        protocol = "${dubbo.protocol.id}",
+        registry = "${dubbo.registry.id}")
 public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements OrderService {
 
     @Autowired

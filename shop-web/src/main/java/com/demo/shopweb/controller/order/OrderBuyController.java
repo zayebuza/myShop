@@ -1,11 +1,10 @@
 package com.demo.shopweb.controller.order;
 
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.demo.shopcommon.base.BaseController;
 import com.demo.shopdubboapi.service.OrderService;
 
-
-import jdk.nashorn.internal.ir.annotations.Reference;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,8 +21,8 @@ import java.util.List;
 @RestController
 public class OrderBuyController extends BaseController {
 
-    @Reference
-    private OrderService orderService;
+    @Reference(application = "${dubbo.application.id}")
+     private OrderService orderService;
 
     @RequestMapping(value = "/get")
     public void ha(){

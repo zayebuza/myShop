@@ -16,7 +16,7 @@ import java.util.Date;
  * 4
  */
 @TableName("os_order")
-public class Order extends Model<Order> {
+public class Order extends Model<Order> implements  Serializable{
 
     private static final long serialVersionUID = 1L;
 

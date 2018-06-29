@@ -1,19 +1,6 @@
 project:
   name: 开发环境
 
-
-dubbo:
-    application:
-        id: dubbo-provider-demo
-        name: dubbo-provider-demo
-    protocol:
-        id: dubbo
-        name: dubbo
-        port: 12345
-    registry:
-        address: zookeeper://39.105.26.217:2181
-        id: my-registry
-
 spring:
 
   datasource:
@@ -47,4 +34,18 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
 server:
-  port: 9092
+  port: 8080
+
+dubbo:
+    application:
+      name: demo-consumer
+    registry:
+      addrsess: zookeeper://39.105.26.217                 # zookeeper注册中心的地址
+      port: 2181
+      client: zkclient                      # zookeeper注册中心的端口
+    server: true
+
+#    protocol:
+#      id: dubbo
+#      name: dubbo
+#      port: 12345
