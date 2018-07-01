@@ -1,4 +1,4 @@
-package com.demo.shoporder.service.impl;
+package com.demo.shoporder.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -31,8 +31,7 @@ import java.util.List;
  * 3 * @Date: 2018/6/26 18:27
  * 4
  */
-@Service(interfaceClass = OrderServiceImpl.class,
-        application = "${dubbo.application.id}",
+@Service(application = "${dubbo.application.id}",
         protocol = "${dubbo.protocol.id}",
         registry = "${dubbo.registry.id}")
 public class OrderServiceImpl extends ServiceImpl<OrderMapper,Order> implements OrderService {

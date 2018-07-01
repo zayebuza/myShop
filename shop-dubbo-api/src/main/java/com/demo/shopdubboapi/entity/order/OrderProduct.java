@@ -15,7 +15,7 @@ import java.math.BigDecimal;
  * 4
  */
 @TableName("os_order_product")
-public class OrderProduct extends Model<OrderProduct> {
+public class OrderProduct extends Model<OrderProduct> implements Serializable{
 
     private static final long serialVersionUID = 1L;
 

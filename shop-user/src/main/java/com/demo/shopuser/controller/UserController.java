@@ -6,13 +6,14 @@ import com.demo.shopuser.common.OsResult;
 import com.demo.shopuser.common.RegexUtils;
 import com.demo.shopuser.entity.User;
 import com.demo.shopuser.service.serviceImpl.UserServiceImpl;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 
 
 /**
@@ -37,7 +38,7 @@ public class UserController {
     @ResponseBody
     public Object login(@RequestParam(value = "loginName") String loginName, @RequestParam(value = "passWord") String passWord){
 
-        Subject currentUser = SecurityUtils.getSubject();
+       Subject currentUser = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(loginName, passWord);
 
         currentUser.login(token);

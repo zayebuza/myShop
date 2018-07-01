@@ -1,6 +1,7 @@
 package com.demo.shopdubboapi.entity.order;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import java.util.List;
  * 3 * @Date: 2018/6/26 18:16
  * 4
  */
+@Repository
 public class OrderShoppingCartVO implements Serializable {
 
     private static final long serialVersionUID = 1L;

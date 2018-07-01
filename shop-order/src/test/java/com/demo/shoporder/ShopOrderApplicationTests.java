@@ -3,7 +3,6 @@ package com.demo.shoporder;
 import com.demo.shopdubboapi.entity.order.Order;
 import com.demo.shopdubboapi.entity.order.OrderShipment;
 import com.demo.shopdubboapi.entity.order.OrderShoppingCartVO;
-import com.demo.shoporder.service.impl.OrderServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
