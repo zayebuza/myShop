@@ -1,10 +1,11 @@
-package com.demo.shopuser.entity;
+package com.demo.shopdubboapi.entity.user;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import java.util.Date;
  * Description:
  */
 @TableName("os_user")
-public class User {
+public class User implements Serializable{
     /**
      * 用户ID
      */

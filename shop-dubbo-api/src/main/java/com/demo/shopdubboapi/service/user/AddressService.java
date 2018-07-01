@@ -1,7 +1,7 @@
-package com.demo.shopuser.service;
+package com.demo.shopdubboapi.service.user;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.demo.shopuser.entity.Address;
+import com.demo.shopdubboapi.entity.user.Address;
 
 import java.util.List;
 

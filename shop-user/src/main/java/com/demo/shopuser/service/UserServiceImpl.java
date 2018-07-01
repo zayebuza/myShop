@@ -1,17 +1,18 @@
-package com.demo.shopuser.service.serviceImpl;
+package com.demo.shopuser.service;
 
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.demo.shopdubboapi.entity.user.User;
+import com.demo.shopdubboapi.service.user.UserService;
 import com.demo.shopuser.common.CommonReturnCode;
 import com.demo.shopuser.common.PasswordUtils;
 import com.demo.shopuser.common.UserUtils;
 import com.demo.shopuser.enums.StatusEnum;
 import com.demo.shopuser.common.ValidateException;
-import com.demo.shopuser.entity.User;
 import com.demo.shopuser.mapper.UserMapper;
-import com.demo.shopuser.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 
 
 import java.util.Date;
@@ -21,7 +22,9 @@ import java.util.Date;
  * Date:2018/6/24-13:57
  * Description:
  */
-@Service
+@Service(application = "${dubbo.application.id}",
+        protocol = "${dubbo.protocol.id}",
+        registry = "${dubbo.registry.id}")
 public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
     @Autowired
     UserMapper userMapper;

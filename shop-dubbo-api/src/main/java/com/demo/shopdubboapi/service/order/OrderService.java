@@ -1,4 +1,4 @@
-package com.demo.shopdubboapi.service;
+package com.demo.shopdubboapi.service.order;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.demo.shopdubboapi.entity.order.Order;

@@ -1,4 +1,4 @@
-package com.demo.shopproduct.bean;
+package com.demo.shopdubboapi.entity.product;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

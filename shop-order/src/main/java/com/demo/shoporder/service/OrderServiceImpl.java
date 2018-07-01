@@ -6,7 +6,7 @@ import com.demo.shopdubboapi.entity.order.Order;
 import com.demo.shopdubboapi.entity.order.OrderShipment;
 import com.demo.shopdubboapi.entity.order.OrderShoppingCartVO;
 import com.demo.shopdubboapi.entity.order.OrderStatus;
-import com.demo.shopdubboapi.service.OrderService;
+import com.demo.shopdubboapi.service.order.OrderService;
 import com.demo.shoporder.common.enums.OrderCreateStatusEnum;
 import com.demo.shoporder.common.enums.OrderStatusEnum;
 import com.demo.shoporder.common.utils.OrderUtils;

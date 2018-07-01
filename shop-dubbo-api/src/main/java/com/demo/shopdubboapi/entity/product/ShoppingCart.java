@@ -1,4 +1,4 @@
-package com.demo.shopproduct.entity;
+package com.demo.shopdubboapi.entity.product;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;

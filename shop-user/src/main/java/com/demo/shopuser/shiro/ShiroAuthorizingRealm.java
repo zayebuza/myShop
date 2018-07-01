@@ -1,8 +1,9 @@
 package com.demo.shopuser.shiro;
 
+import com.demo.shopdubboapi.entity.user.User;
 import com.demo.shopuser.enums.StatusEnum;
-import com.demo.shopuser.entity.User;
-import com.demo.shopuser.service.serviceImpl.UserServiceImpl;
+
+import com.demo.shopuser.service.UserServiceImpl;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;

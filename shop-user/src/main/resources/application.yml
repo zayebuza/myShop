@@ -1,5 +1,0 @@
-#����ļ�����Ҫ�ļ���spring boot�����ȼ�������ļ�
-spring:
-  profiles:
-  #��ʾ������dev�������ļ�
-    active: dev

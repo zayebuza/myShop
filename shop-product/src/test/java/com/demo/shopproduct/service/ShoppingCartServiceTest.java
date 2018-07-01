@@ -1,6 +1,5 @@
 package com.demo.shopproduct.service;
 
-import com.demo.shopproduct.service.impl.ShoppingCartServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

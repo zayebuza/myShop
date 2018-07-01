@@ -1,15 +1,16 @@
-package com.demo.shopproduct.service.impl;
+package com.demo.shopproduct.service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.demo.shopproduct.bean.CartVO;
-import com.demo.shopproduct.bean.ShoppingCartVO;
-import com.demo.shopproduct.entity.ShoppingCart;
+import com.demo.shopdubboapi.entity.product.CartVO;
+import com.demo.shopdubboapi.entity.product.ShoppingCart;
+import com.demo.shopdubboapi.entity.product.ShoppingCartVO;
+import com.demo.shopdubboapi.service.product.ShoppingCartService;
 import com.demo.shopproduct.mapper.ShoppingCartMapper;
-import com.demo.shopproduct.service.ShoppingCartService;
 import com.demo.shopuser.enums.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 
 
 import java.util.Date;
@@ -21,7 +22,9 @@ import java.util.List;
  * 4
  */
 
-@Service
+@Service(application = "${dubbo.application.id}",
+        protocol = "${dubbo.protocol.id}",
+        registry = "${dubbo.registry.id}")
 public class ShoppingCartServiceImpl extends ServiceImpl<ShoppingCartMapper,ShoppingCart> implements ShoppingCartService {
     @Autowired
     ShoppingCartMapper shoppingCartMapper;

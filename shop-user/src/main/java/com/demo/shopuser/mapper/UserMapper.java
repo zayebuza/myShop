@@ -1,8 +1,8 @@
 package com.demo.shopuser.mapper;
 
-import com.demo.shopuser.entity.User;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.demo.shopdubboapi.entity.user.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

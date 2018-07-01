@@ -1,7 +1,7 @@
-package com.demo.shopuser.service;
+package com.demo.shopdubboapi.service.user;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.demo.shopuser.entity.User;
+import com.demo.shopdubboapi.entity.user.User;
 
 /**
  * 2 * @Author: miaodongbiao

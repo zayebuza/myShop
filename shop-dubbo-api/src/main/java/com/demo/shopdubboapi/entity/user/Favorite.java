@@ -1,5 +1,6 @@
-package com.demo.shopuser.entity;
+package com.demo.shopdubboapi.entity.user;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -8,7 +9,7 @@ import java.util.Date;
  * Date:2018/6/24-12:56
  * Description:收藏夹
  */
-public class Favorite {
+public class Favorite implements Serializable{
     /**
      * 收藏表ID
      */

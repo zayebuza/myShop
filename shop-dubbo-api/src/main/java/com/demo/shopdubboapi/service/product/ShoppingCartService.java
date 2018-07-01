@@ -1,8 +1,9 @@
-package com.demo.shopproduct.service;
+package com.demo.shopdubboapi.service.product;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.demo.shopproduct.bean.CartVO;
-import com.demo.shopproduct.entity.ShoppingCart;
+import com.demo.shopdubboapi.entity.product.CartVO;
+import com.demo.shopdubboapi.entity.product.ShoppingCart;
+
 
 /**
  * 2 * @Author: miaodongbiao
@@ -17,7 +18,7 @@ public interface ShoppingCartService extends IService<ShoppingCart> {
      * @param userId    用户ID
      * @return
      */
-    Integer insertShoppingCart(Long productSpecNumber,Long userId);
+    Integer insertShoppingCart(Long productSpecNumber, Long userId);
 
     /**
      * 根据用户ID、购物车商品状态查找购物车列表
@@ -25,7 +26,7 @@ public interface ShoppingCartService extends IService<ShoppingCart> {
      * @param status    购物车商品状态（选中，未选中）
      * @return
      */
-    CartVO list(Long userId,Integer status);
+    CartVO list(Long userId, Integer status);
 
     /**
      * 根据商品编号，用户ID 跟新购物车的是否选中状态
@@ -34,7 +35,7 @@ public interface ShoppingCartService extends IService<ShoppingCart> {
      * @param status    购物车商品选中状态
      * @return
      */
-    Integer updateStatus(Long productSpecNumber,Long userId,Integer status);
+    Integer updateStatus(Long productSpecNumber, Long userId, Integer status);
 
     /**
      * 根据用户ID删除购物车中选中的商品

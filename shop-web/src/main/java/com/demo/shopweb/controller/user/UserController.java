@@ -1,19 +1,19 @@
-package com.demo.shopuser.controller;
+package com.demo.shopweb.controller.user;
 
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.demo.shopdubboapi.entity.user.User;
+import com.demo.shopdubboapi.service.user.UserService;
 import com.demo.shopuser.common.BaseResult;
 import com.demo.shopuser.common.CommonReturnCode;
 import com.demo.shopuser.common.OsResult;
 import com.demo.shopuser.common.RegexUtils;
-import com.demo.shopuser.entity.User;
-import com.demo.shopuser.service.serviceImpl.UserServiceImpl;
+import com.demo.shopuser.service.UserServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 
 
 /**
@@ -25,8 +25,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value="/user")
 public class UserController {
 
-    @Autowired
-    UserServiceImpl userServiceImpl;
+    @Reference(application = "${dubbo.application.id}")
+    UserService userService;
     /**
      * 用户登录
      * @param loginName
@@ -74,7 +74,7 @@ public class UserController {
         if (StringUtils.isEmpty(user.getLoginPassword()) || !RegexUtils.isPassword(user.getLoginPassword())){
             return new OsResult(CommonReturnCode.BAD_REQUEST.getCode(),"密码长度6~20位，其中数字，字母和符号至少包含两种!");
         }
-        userServiceImpl.insertUser(user);
+        userService.insertUser(user);
         return new BaseResult(CommonReturnCode.SUCCESS.getCode(),"创建成功");
     }
 
