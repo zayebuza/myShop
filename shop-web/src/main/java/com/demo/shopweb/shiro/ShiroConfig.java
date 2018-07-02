@@ -1,4 +1,4 @@
-package com.demo.shopuser.shiro;
+package com.demo.shopweb.shiro;
 
 
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;

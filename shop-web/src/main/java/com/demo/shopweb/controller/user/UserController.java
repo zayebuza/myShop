@@ -7,7 +7,6 @@ import com.demo.shopuser.common.BaseResult;
 import com.demo.shopuser.common.CommonReturnCode;
 import com.demo.shopuser.common.OsResult;
 import com.demo.shopuser.common.RegexUtils;
-import com.demo.shopuser.service.UserServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;

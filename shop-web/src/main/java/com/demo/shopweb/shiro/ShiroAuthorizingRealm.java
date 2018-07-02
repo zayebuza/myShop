@@ -1,14 +1,21 @@
-package com.demo.shopuser.shiro;
+package com.demo.shopweb.shiro;
 
+
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.fastjson.JSON;
 import com.demo.shopdubboapi.entity.user.User;
+import com.demo.shopdubboapi.service.user.UserService;
 import com.demo.shopuser.enums.StatusEnum;
-
-import com.demo.shopuser.service.UserServiceImpl;
+import com.demo.shopweb.redis.RedisUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+
+import java.io.Serializable;
+import java.util.UUID;
 
 
 /**
@@ -17,8 +24,13 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Description:
  */
 public class ShiroAuthorizingRealm extends AuthorizingRealm {
+    @Reference(application = "${dubbo.application.id}")
+    UserService userServiceImpl;
+
     @Autowired
-    UserServiceImpl userServiceImpl;
+    RedisTemplate<String,Serializable> redisTemplate;
+//    @Autowired
+//    RedisUtils redisUtils;
 
     /**
      * 授权  访问控制。比如某个用户是否具有某个操作的使用权限
@@ -57,8 +69,14 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
         if (StatusEnum.FREEZE.getStatus().equals(user.getStatus())) {
             throw new DisabledAccountException();// 校验用户状态
         }
+       //生成一个token
+        String token2 = UUID.randomUUID().toString();
+        System.out.println(token2);
+
+        redisTemplate.opsForValue().set(token2, 2);
+        System.out.println("redis值"+redisTemplate.opsForValue().get("35dafbab-fbbb-46ab-a0d8-99782ad72d99"));
+
         return new SimpleAuthenticationInfo(user,user.getLoginPassword(),this.getClass().getName());
     }
 
-    // TODO: 2018/6/25  shiro 整合 jwt
 }
