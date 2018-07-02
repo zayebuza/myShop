@@ -29,3 +29,9 @@ SpringBoot + Dubbo + Zookeeper
     Dubbo-admin
         https://github.com/apache/incubator-dubbo-ops
         基于官方文档安装失败，没找到什么原因。可以下载最新代码，使用idea直接运行 dubbo-admin，可以直观的看到，注册到zk的服务。
+        
+        
+        
+   简单的单点登录
+        shop-user，登录成功之后返回一个token，该token由UUID生成，生成之后存到redis里，key为token，value为用户信息。
+        之后，用户访问其他服务，比如查询购物车商品列表，请求参数可以携带参数token，然后解析token获取用户信息。
