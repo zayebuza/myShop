@@ -1,8 +1,10 @@
 package com.demo.shopweb.controller.order;
 
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.alibaba.dubbo.config.annotation.Reference;
 
+import com.alibaba.fastjson.JSON;
 import com.demo.shopcommon.base.BaseController;
 import com.demo.shopdubboapi.entity.order.Order;
 import com.demo.shopdubboapi.entity.order.OrderShipment;
@@ -18,8 +20,11 @@ import com.demo.shopuser.common.OsResult;
 import com.demo.shopuser.enums.StatusEnum;
 import com.demo.shopweb.common.utils.SingletonLoginUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,11 +43,17 @@ public class OrderBuyController extends BaseController {
     ShoppingCartService shoppingCartService;
     @Reference(application = "${dubbo.application.id}")
     OrderService orderService;
+    @Autowired
+    RedisTemplate<String,Serializable> redisTemplate;
 
     @PostMapping(value = "/confirm")
     @ResponseBody
-    public Object confirm( @RequestParam(value = "addressId", required = true) Long addressId) {
+    public Object confirm( @RequestParam(value = "token") String token, @RequestParam(value = "addressId", required = true) Long addressId) {
         Order order = new Order();
+        //根据token获取uid
+        String userInfo = redisTemplate.opsForValue().get(token).toString();
+        String uid = JSON.parseObject(userInfo).get("userId").toString();
+        System.out.println(uid);
         // 收货地址
         //Address address = addressService.getAddress(addressId, SingletonLoginUtils.getUserId());
         CartVO cartVO = shoppingCartService.list(1L, StatusEnum.CHECKED.getStatus());
@@ -53,8 +64,8 @@ public class OrderBuyController extends BaseController {
             BeanUtils.copyProperties(address, orderShipment);
 
             // 购物车选中商品
-          //  CartVO cartVO = shoppingCartService.list(SingletonLoginUtils.getUserId(), StatusEnum.CHECKED.getStatus());
-           // CartVO cartVO = shoppingCartService.list(1L, StatusEnum.CHECKED.getStatus());
+            //  CartVO cartVO = shoppingCartService.list(SingletonLoginUtils.getUserId(), StatusEnum.CHECKED.getStatus());
+            // CartVO cartVO = shoppingCartService.list(1L, StatusEnum.CHECKED.getStatus());
             System.out.println("购物车选中商品"+cartVO.toString());
             if (!cartVO.getShoppingCartVOs().isEmpty()) {
                 order.setBuyNumber(cartVO.getTotalNumber());// 订单总数量

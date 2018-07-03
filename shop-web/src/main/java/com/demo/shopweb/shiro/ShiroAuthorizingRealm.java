@@ -13,6 +13,8 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -29,8 +31,6 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 
     @Autowired
     RedisTemplate<String,Serializable> redisTemplate;
-//    @Autowired
-//    RedisUtils redisUtils;
 
     /**
      * 授权  访问控制。比如某个用户是否具有某个操作的使用权限
@@ -73,9 +73,9 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
         String token2 = UUID.randomUUID().toString();
         System.out.println(token2);
 
-        redisTemplate.opsForValue().set(token2, 2);
-        System.out.println("redis值"+redisTemplate.opsForValue().get("35dafbab-fbbb-46ab-a0d8-99782ad72d99"));
-
+        redisTemplate.opsForValue().set(token2, JSON.toJSON(user).toString());
+        //System.out.println("redis值"+redisUtils.get(""));
+        System.out.println("redis的值"+redisTemplate.opsForValue().get(token2));
         return new SimpleAuthenticationInfo(user,user.getLoginPassword(),this.getClass().getName());
     }
 

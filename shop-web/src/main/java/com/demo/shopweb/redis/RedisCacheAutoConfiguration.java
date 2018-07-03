@@ -4,7 +4,6 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -30,13 +29,13 @@ public class RedisCacheAutoConfiguration {
         template.setConnectionFactory(lettuceConnectionFactory);
         return template;
     }
-//    @Bean
-//    public StringRedisTemplate stringRedisCacheTemplate(JedisConnectionFactory lettuceConnectionFactory) {
-//        StringRedisTemplate template = new StringRedisTemplate();
-//        template.setKeySerializer(new StringRedisSerializer());
-//        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-//        template.setConnectionFactory(lettuceConnectionFactory);
-//        return template;
-//    }
+    @Bean
+    public StringRedisTemplate stringRedisCacheTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
+        StringRedisTemplate template = new StringRedisTemplate();
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        template.setConnectionFactory(lettuceConnectionFactory);
+        return template;
+    }
 
 }

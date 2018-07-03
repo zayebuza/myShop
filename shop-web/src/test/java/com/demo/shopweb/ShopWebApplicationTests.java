@@ -18,7 +18,7 @@ public class ShopWebApplicationTests {
     @Test
     public void test(){
         Order order = new Order();
-        orderBuyController.confirm(3L);
+      //  orderBuyController.confirm(3L);
 
     }
 
