@@ -1,4 +1,5 @@
 # myShop  
+目前shop-dubbo分支在更新dubbo版本，主分支问题很大。。。。
     todo
         
         1，整合shiro + jwt，通过 token 检验权限
@@ -32,12 +33,13 @@
     Jenkinsfile文件的编写，熟悉Groovy语言
     
    ## 完善单元测试
-   
+    Junit
    
    ## Jmeter脚本
+    执行脚本
    
    
    ## Shell脚本  一键部署
-   
+    一键部署
    
    
